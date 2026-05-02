@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
 <body>
-  <input type="text" id="wordInput" placeholder="Введите слово">
-  <button id="addBtn">Add Word</button>
-  <button id="highlightBtn">Higlight Now</button>
-  <div id="wordList"></div>
+  <div class="container">
+    <!-- Вкладки -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="highlight">🔍 Выделение</button>
+      <button class="tab-btn" data-tab="replace">🔄 Замена</button>
+    </div>
+
+    <!-- Вкладка выделения -->
+    <div id="highlight-tab" class="tab-content active">
+      <div class="word-input-area">
+        <input type="text" id="highlightWordInput" placeholder="Введите слово для выделения">
+        <button id="addHighlightBtn" class="btn-primary">Добавить</button>
+      </div>
+      
+      <div class="action-buttons">
+        <button id="highlightBtn" class="btn-secondary">Выделить все на странице</button>
+        <button id="clearAllHighlightsBtn" class="btn-danger">Очистить всё</button>
+      </div>
+      
+      <h3>Список слов для выделения:</h3>
+      <div id="highlightWordList" class="word-list-container"></div>
+    </div>
+
+    <!-- Вкладка замены -->
+    <div id="replace-tab" class="tab-content">
+      <div class="replace-input-area">
+        <div class="input-group">
+          <input type="text" id="findWordInput" placeholder="Исходное слово">
+          <span class="arrow">→</span>
+          <input type="text" id="replaceWordInput" placeholder="Слово для замены">
+        </div>
+        <button id="addReplaceRuleBtn" class="btn-primary">Добавить правило замены</button>
+      </div>
+      
+      <div class="action-buttons">
+        <button id="applyReplacementsBtn" class="btn-secondary">Применить замены на странице</button>
+        <button id="clearAllReplacementsBtn" class="btn-danger">Удалить все правила</button>
+      </div>
+      
+      <h3>Правила замены:</h3>
+      <div id="replaceRulesList" class="word-list-container"></div>
+    </div>
+  </div>
+  
   <script src="popup.js"></script>
 </body>
 </html>
