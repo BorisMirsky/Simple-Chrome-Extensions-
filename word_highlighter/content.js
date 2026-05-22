@@ -1,8 +1,6 @@
-console.log('✅ content.js загружен');
 
 const REPLACED_CLASS = 'word-replaced-mark';
 
-// Добавляем стили
 const style = document.createElement('style');
 style.textContent = `
   .${REPLACED_CLASS} {
@@ -53,7 +51,6 @@ function clearReplacements() {
   });
 }
 
-// Слушаем сообщения
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "applyReplacements") {
     chrome.storage.local.get(['replaceRules'], (result) => {

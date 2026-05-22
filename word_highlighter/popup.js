@@ -1,4 +1,4 @@
-// Добавление правила замены
+
 document.getElementById('addReplaceRuleBtn').addEventListener('click', () => {
   const findWord = document.getElementById('findWordInput').value.trim();
   const replaceWord = document.getElementById('replaceWordInput').value.trim();
@@ -19,7 +19,7 @@ document.getElementById('addReplaceRuleBtn').addEventListener('click', () => {
           document.getElementById('findWordInput').value = '';
           document.getElementById('replaceWordInput').value = '';
           displayReplaceRules();
-          // Применяем замены на текущей странице
+          // Применяем замены 
           chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             if (tabs[0]) {
               chrome.tabs.sendMessage(tabs[0].id, {action: "applyReplacements"});
